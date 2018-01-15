@@ -8,7 +8,7 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
             'tier': 'Science Machine',
             'damage': '17',
             'durability': '25 uses',
-            'perk': 'Use for digging',
+            'perk': 'Used for digging',
             'stacks': 'No',
             'debug': 'Shovel',
         },
@@ -28,7 +28,7 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
 
     $scope.addRow = function() {
         $scope.items.push({ 'name': $scope.name, 'materials': $scope.materials, 'tab': $scope.tab, 
-            'tier': $scope.tier, 'damage': $scope.damage, 'durability': $scope.durability, 
+            'tier': $scope.tier, 'damage': $scope.damage, 'durability': $scope.durability + ' uses', 
             'perk': $scope.perk, 'stacks': $scope.stacks, 'debug': $scope.debug  });
         
         $scope.alert = $scope.name + ' has been added.';
@@ -43,7 +43,6 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
         $scope.stacks = '';
         $scope.debug = '';
         
-        console.log($scope.alert);
         return alert;
     };
 }]);

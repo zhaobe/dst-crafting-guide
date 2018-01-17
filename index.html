@@ -45,7 +45,7 @@ div {
                             </div>
                             <div>
                                 <label>Materials</label>
-                                <input type="text" class="form-control" name="materials" ng-model="materials" placeholder="2 Twigs, 2 Flint...">
+                                <input type="text" class="form-control" name="materials" ng-model="materials" placeholder="2 Twig, 2 Flint...">
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
@@ -68,6 +68,7 @@ div {
                                 <div class="col-md-4">
                                     <label>Tier</label>
                                     <select type="text" class="form-control" name="tier" ng-model="tier">
+                                    	<option>Always available</option>
                                         <option>Science Machine</option>
                                         <option>Alchemy Engine</option>
                                         <option>Prestihatitator</option>
@@ -101,7 +102,7 @@ div {
                             </div>
                             <div class="row">
                             	<div class="col-md-1">
-                            		<i ng-show="showCheck" class="fa fa-check fa-2x checkmarkStyle" aria-hidden="true"></i>	
+                            		<i ng-show="checkmark == true" class="fa fa-check fa-2x checkmarkStyle" aria-hidden="true"></i>	
                             	</div>
                             	<div class="col-md-11">
                             		<h4>{{alert}}</h4>	
@@ -110,7 +111,7 @@ div {
                             
                     </div>
                     <div style="text-align: center;">
-                        <button ng-click="showCheck = ! showCheck" type="submit" value="Submit" class="btn btn-primary" style="width: 80%;">Submit</button>
+                        <button type="submit" value="Submit" class="btn btn-primary" style="width: 80%;">Submit</button>
                     </div>
                     </form>
                 </div>
@@ -143,6 +144,7 @@ div {
             <td>{{i.perk}}</td>
             <td>{{i.stacks}}</td>
             <td>{{i.debug}}</td>
+            <td><input type="button" value="Remove" class="btn btn-primary" ng-click="removeRow(i.name)"/></td>
         </tr>
     </table>
 </body>

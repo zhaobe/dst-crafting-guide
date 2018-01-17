@@ -2,8 +2,30 @@ var dstApp = angular.module("dstApp", []);
 
 dstApp.controller("CraftCtrl", ['$scope', function($scope) {
     $scope.items = [{
+            'name': 'Axe',
+            'materials': '1 Twig, 1 Flint',
+            'tab': 'Tools',
+            'tier': 'Always available',
+            'damage': '27.2',
+            'durability': '100 uses',
+            'perk': 'Chops wood',
+            'stacks': 'No',
+            'debug': 'axe',
+        },
+        {
+            'name': 'Pickaxe',
+            'materials': '2 Twig, 2 Flint',
+            'tab': 'Tools',
+            'tier': 'Always available',
+            'damage': '27.2',
+            'durability': '33 uses',
+            'perk': 'Mines rocks',
+            'stacks': 'No',
+            'debug': 'pickaxe',
+        },
+        {
             'name': 'Shovel',
-            'materials': '2 Twigs, 2 Flint',
+            'materials': '2 Twig, 2 Flint',
             'tab': 'Tools',
             'tier': 'Science Machine',
             'damage': '17',
@@ -13,24 +35,65 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
             'debug': 'Shovel',
         },
         {
-            'name': 'Regal Shovel',
-            'materials': '4 Twigs, 2 Gold Nugget',
-            'tab': 'Tools',
-            'tier': 'Alchemy Engine',
-            'damage': '17',
-            'durability': '100 uses',
-            'perk': 'Used for digging',
+            'name': 'Campfire',
+            'materials': '2 Log, 3 Cut Grass',
+            'tab': 'Light',
+            'tier': 'Always available',
+            'damage': '0',
+            'durability': '2 min 15 sec',
+            'perk': '',
             'stacks': 'No',
-            'debug': 'goldenshovel',
+            'debug': 'campfire',
+        },
+        {
+            'name': 'Fire Pit',
+            'materials': '2 Log, 12 Rock',
+            'tab': 'Light',
+            'tier': 'Always available',
+            'damage': '0',
+            'durability': '',
+            'perk': '',
+            'stacks': 'No',
+            'debug': '',
+        },
+        {
+            'name': 'Torch',
+            'materials': '2 Twig, 2 Cut Grass',
+            'tab': 'Light',
+            'tier': 'Always available',
+            'damage': '17',
+            'durability': '75 sec',
+            'perk': '',
+            'stacks': 'No',
+            'debug': 'torch',
+        },
+        {
+            'name': 'Trap',
+            'materials': '2 Twig, 6 Cut Grass',
+            'tab': 'Survival',
+            'tier': 'Always available',
+            'damage': '0',
+            'durability': '8 uses',
+            'perk': 'Captures Rabbits, Frogs, Spiders, Crabbits',
+            'stacks': 'No',
+            'debug': 'trap',
         },
 
     ];
 
     $scope.addRow = function() {
-        $scope.items.push({ 'name': $scope.name, 'materials': $scope.materials, 'tab': $scope.tab, 
-            'tier': $scope.tier, 'damage': $scope.damage, 'durability': $scope.durability + ' uses', 
-            'perk': $scope.perk, 'stacks': $scope.stacks, 'debug': $scope.debug  });
-        
+        $scope.items.push({
+            'name': $scope.name,
+            'materials': $scope.materials,
+            'tab': $scope.tab,
+            'tier': $scope.tier,
+            'damage': $scope.damage,
+            'durability': $scope.durability + ' uses',
+            'perk': $scope.perk,
+            'stacks': $scope.stacks,
+            'debug': $scope.debug
+        });
+
         $scope.alert = $scope.name + ' has been added.';
 
         $scope.name = '';
@@ -42,7 +105,27 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
         $scope.perk = '';
         $scope.stacks = '';
         $scope.debug = '';
-        
+        $scope.checkmark = true;
+
         return alert;
     };
+
+    $scope.removeRow = function(name) {
+        var index = -1; // needed in case of all rows deleted or if first row gets deleted first all the time
+        var arr = eval($scope.items);
+
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i].name === name) {
+                index = i;
+                break;
+            }
+        }
+        if (index === -1) {
+            alert("There was an error removing the selected item");
+        }
+        // actually delete item from array, item in ng-repeat
+        $scope.items.splice(index, 1);
+    };
+
+
 }]);

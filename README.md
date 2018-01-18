@@ -6,11 +6,12 @@ DONE:
 - search - returns any row that has the search keyword
 - add item
 - add item success message
+- remove function
 
 TODO:
 - add item value checking - delay until other functions are done
 	- use ngRequired or form required, only name for now
 - add item persist
-- remove function
 - edit function
 - add local libraries
+- sortable columns

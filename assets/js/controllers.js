@@ -32,7 +32,7 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
             'durability': '25 uses',
             'perk': 'Used for digging',
             'stacks': 'No',
-            'debug': 'Shovel',
+            'debug': 'shovel',
         },
         {
             'name': 'Campfire',

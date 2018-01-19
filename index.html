@@ -135,6 +135,7 @@ div {
             <th>Debug Spawn</th>
         </tr>
         <tr ng-repeat="i in items  | filter: searchKeyword " class="ng-scope">
+        	<td><input type="button" value="Edit" class="btn btn-default" ng-click="editRow(i.name)" /></td>
             <td>{{i.name}}</td>
             <td>{{i.materials}}</td>
             <td>{{i.tab}}</td>

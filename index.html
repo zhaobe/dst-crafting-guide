@@ -15,8 +15,9 @@
 div {
     padding: 10px;
 }
-.checkmarkStyle  {
-	color: green;
+
+.checkmarkStyle {
+    color: green;
 }
 </style>
 
@@ -68,7 +69,7 @@ div {
                                 <div class="col-md-4">
                                     <label>Tier</label>
                                     <select type="text" class="form-control" name="tier" ng-model="tier">
-                                    	<option>Always available</option>
+                                        <option>Always available</option>
                                         <option>Science Machine</option>
                                         <option>Alchemy Engine</option>
                                         <option>Prestihatitator</option>
@@ -101,14 +102,13 @@ div {
                                 <input type="text" class="form-control" name="debug" ng-model="debug" placeholder="Optional for console users' reference..">
                             </div>
                             <div class="row">
-                            	<div class="col-md-1">
-                            		<i ng-show="checkmark == true" class="fa fa-check fa-2x checkmarkStyle" aria-hidden="true"></i>	
-                            	</div>
-                            	<div class="col-md-11">
-                            		<h4>{{alert}}</h4>	
-                            	</div>
+                                <div class="col-md-1">
+                                    <i ng-show="checkmark == true" class="fa fa-check fa-2x checkmarkStyle" aria-hidden="true"></i>
+                                </div>
+                                <div class="col-md-11">
+                                    <h4>{{alert}}</h4>
+                                </div>
                             </div>
-                            
                     </div>
                     <div style="text-align: center;">
                         <button type="submit" value="Submit" class="btn btn-primary" style="width: 80%;">Submit</button>
@@ -135,17 +135,88 @@ div {
             <th>Debug Spawn</th>
         </tr>
         <tr ng-repeat="i in items  | filter: searchKeyword " class="ng-scope">
-        	<td><input type="button" value="Edit" class="btn btn-default" ng-click="editRow(i.name)" /></td>
-            <td>{{i.name}}</td>
-            <td>{{i.materials}}</td>
-            <td>{{i.tab}}</td>
-            <td>{{i.tier}}</td>
-            <td>{{i.damage}}</td>
-            <td>{{i.durability}}</td>
-            <td>{{i.perk}}</td>
-            <td>{{i.stacks}}</td>
-            <td>{{i.debug}}</td>
-            <td><input type="button" value="Remove" class="btn btn-primary" ng-click="removeRow(i.name)"/></td>
+            <td>
+                <div ng-hide="editData[i.name]">{{i.name}}</div>
+                <div ng-show="editData[i.name]">
+                    <input type="text" ng-model="i.name">
+                </div>
+            </td>
+            <td>
+                <div ng-hide="editData[i.name]">{{i.materials}}</div>
+                <div ng-show="editData[i.name]">
+                    <input type="text" ng-model="i.materials">
+                </div>
+            </td>
+            <td>
+                <div ng-hide="editData[i.name]">{{i.tab}}</div>
+                <div ng-show="editData[i.name]">
+                    <select type="text" ng-model="i.tab">
+                        <option>Tools</option>
+                        <option>Light</option>
+                        <option>Survival</option>
+                        <option>Food</option>
+                        <option>Science</option>
+                        <option>Fight</option>
+                        <option>Structures</option>
+                        <option>Refine</option>
+                        <option>Magic</option>
+                        <option>Dress</option>
+                        <option>Ancient</option>
+                        <option>Book</option>
+                    </select>
+                </div>
+            </td>
+            <td>
+                <div ng-hide="editData[i.name]">{{i.tier}}</div>
+                <div ng-show="editData[i.name]">
+                    <select type="text" ng-model="i.tier">
+                        <option>Always available</option>
+                        <option>Science Machine</option>
+                        <option>Alchemy Engine</option>
+                        <option>Prestihatitator</option>
+                        <option>Shadow Manipulator</option>
+                        <option>Ancient Pseudoscience Station T1</option>
+                        <option>Ancient Pseudoscience Station T2</option>
+                    </select>
+                </div>
+            </td>
+            <td>
+            	<div ng-hide="editData[i.name]">{{i.damage}}</div>
+                <div ng-show="editData[i.name]">
+                    <input type="text" ng-model="i.damage">
+                </div>
+            </td>
+            <td>
+            	<div ng-hide="editData[i.name]">{{i.durability}}</div>
+                <div ng-show="editData[i.name]">
+                    <input type="text" ng-model="i.durability">
+                </div>
+            </td>
+            <td>
+            	<div ng-hide="editData[i.name]">{{i.perk}}</div>
+                <div ng-show="editData[i.name]">
+                    <input type="text" ng-model="i.perk">
+                </div>
+            </td>
+            <td>
+            	<div ng-hide="editData[i.name]">{{i.stacks}}</div>
+                <div ng-show="editData[i.name]">
+                    <input type="text" ng-model="i.stacks">
+                </div>
+            </td>
+            <td>
+            	<div ng-hide="editData[i.name]">{{i.debug}}</div>
+                <div ng-show="editData[i.name]">
+                    <input type="text" ng-model="i.debug">
+                </div>
+            </td>
+            <td>
+                <button ng-hide="editData[i.name]" type="button" value="Edit" class="btn btn-default" ng-click="editRow(i)">Edit</button>
+                <button ng-show="editData[i.name]" type="button" value="Update" class="btn btn-default" ng-click="updateRow(i)">Update</button>
+            </td>
+            <td>
+                <input type="button" value="Remove" class="btn btn-primary" ng-click="removeRow(i.name)">
+            </td>
         </tr>
     </table>
 </body>

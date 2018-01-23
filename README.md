@@ -7,11 +7,11 @@ DONE:
 - add item
 - add item success message
 - remove function
+- add local libraries
 
 TODO:
 - add item value checking - delay until other functions are done
 	- use ngRequired or form required, only name for now
 - add item persist
 - edit function
-- add local libraries
 - sortable columns

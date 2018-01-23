@@ -81,6 +81,14 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
 
     ];
 
+    // hold rows as false except row that is being edited
+    $scope.editData = {};
+
+    // for the existing items in scope.items set editData to false
+    for (var i = 0; i < $scope.items.length; i++) {
+        $scope.editData[$scope.items[i].name] = false;
+    }
+
     $scope.addRow = function() {
         $scope.items.push({
             'name': $scope.name,
@@ -106,6 +114,7 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
         $scope.stacks = '';
         $scope.debug = '';
         $scope.checkmark = true;
+        $scope.edit = false;
 
         return alert;
     };
@@ -125,6 +134,14 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
         }
         // actually delete item from array, item in ng-repeat
         $scope.items.splice(index, 1);
+    };
+
+    $scope.editRow = function(items) {
+        $scope.editData[items.name] = true;
+    };
+
+    $scope.updateRow = function(items) {
+        $scope.editData[items.name] = false;
     };
 
 

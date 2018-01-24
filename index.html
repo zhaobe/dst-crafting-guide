@@ -124,17 +124,35 @@ div {
     </div>
     <table class="table">
         <tr>
-            <th>Item Name</th>
-            <th>Materials</th>
-            <th>Tab</th>
-            <th>Tier</th>
-            <th>Damage</th>
-            <th>Durability</th>
-            <th>Perk</th>
-            <th>Stacks</th>
-            <th>Debug Spawn</th>
+            <th>
+            	<a ng-click="sortType = 'name'; sortReverse = !sortReverse">Item Name</a>
+            </th>
+            <th>
+            	<a ng-click="sortType = 'materials'; sortReverse = !sortReverse">Materials</a>
+            </th>
+            <th>
+            	<a ng-click="sortType = 'tab'; sortReverse = !sortReverse">Tab</a>
+            </th>
+            <th>
+            	<a ng-click="sortType = 'tier'; sortReverse = !sortReverse">Tier</a>
+            </th>
+            <th>
+            	<a ng-click="sortType = 'damage'; sortReverse = !sortReverse">Damage</a>
+            </th>
+            <th>
+            	<a ng-click="sortType = 'durability'; sortReverse = !sortReverse">Durability</a>
+            </th>
+            <th>
+            	<a ng-click="sortType = 'perk'; sortReverse = !sortReverse">Perk</a>
+            </th>
+            <th>
+            	<a ng-click="sortType = 'stacks'; sortReverse = !sortReverse">Stacks</a>
+            </th>
+            <th>
+            	<a ng-click="sortType = 'debug'; sortReverse = !sortReverse">Debug Spawn</a>
+            </th>
         </tr>
-        <tr ng-repeat="i in items  | filter: searchKeyword " class="ng-scope">
+        <tr ng-repeat="i in items | orderBy:sortType:sortReverse  | filter: searchKeyword " class="ng-scope">
             <td>
                 <div ng-hide="editData[i.name]">{{i.name}}</div>
                 <div ng-show="editData[i.name]">

@@ -8,10 +8,14 @@ DONE:
 - add item success message
 - remove function
 - add local libraries
+- sortable columns
 
 TODO:
 - add item value checking - delay until other functions are done
 	- use ngRequired or form required, only name for now
 - add item persist
 - edit function
-- sortable columns
+
+
+BUG:
+- edit item name does not allow more than one character

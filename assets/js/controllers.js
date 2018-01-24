@@ -1,6 +1,10 @@
 var dstApp = angular.module("dstApp", []);
 
 dstApp.controller("CraftCtrl", ['$scope', function($scope) {
+
+    $scope.sortType = 'name'; //default sort by name
+    $scope.sortReverse = false;
+
     $scope.items = [{
             'name': 'Axe',
             'materials': '1 Twig, 1 Flint',

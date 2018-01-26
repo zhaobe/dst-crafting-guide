@@ -140,12 +140,12 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
         $scope.items.splice(index, 1);
     };
 
-    $scope.editRow = function(items) {
-        $scope.editData[items.name] = true;
+    $scope.editRow = function(item) {
+        $scope.editData[item.name] = true;
     };
 
-    $scope.updateRow = function(items) {
-        $scope.editData[items.name] = false;
+    $scope.updateRow = function(item) {
+        $scope.editData[item.name] = false;
     };
 
 

@@ -15,6 +15,7 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
             'perk': 'Chops wood',
             'stacks': 'No',
             'debug': 'axe',
+            'id': 0,
         },
         {
             'name': 'Pickaxe',
@@ -26,6 +27,7 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
             'perk': 'Mines rocks',
             'stacks': 'No',
             'debug': 'pickaxe',
+            'id': 1,
         },
         {
             'name': 'Shovel',
@@ -37,6 +39,7 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
             'perk': 'Used for digging',
             'stacks': 'No',
             'debug': 'shovel',
+            'id': 2,
         },
         {
             'name': 'Campfire',
@@ -48,6 +51,7 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
             'perk': '',
             'stacks': 'No',
             'debug': 'campfire',
+            'id': 3,
         },
         {
             'name': 'Fire Pit',
@@ -59,6 +63,7 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
             'perk': '',
             'stacks': 'No',
             'debug': '',
+            'id': 4,
         },
         {
             'name': 'Torch',
@@ -70,6 +75,7 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
             'perk': '',
             'stacks': 'No',
             'debug': 'torch',
+            'id': 5,
         },
         {
             'name': 'Trap',
@@ -81,16 +87,19 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
             'perk': 'Captures Rabbits, Frogs, Spiders, Crabbits',
             'stacks': 'No',
             'debug': 'trap',
+            'id': 6,
         },
 
     ];
 
     // hold rows as false except row that is being edited
     $scope.editData = {};
+    var counter = 0; // keep count of items in scope
 
     // for the existing items in scope.items set editData to false
     for (var i = 0; i < $scope.items.length; i++) {
-        $scope.editData[$scope.items[i].name] = false;
+        $scope.editData[$scope.items[i].id] = false;
+        counter++;
     }
 
     $scope.addRow = function() {
@@ -103,7 +112,8 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
             'durability': $scope.durability + ' uses',
             'perk': $scope.perk,
             'stacks': $scope.stacks,
-            'debug': $scope.debug
+            'debug': $scope.debug,
+            'id': counter + 1
         });
 
         $scope.alert = $scope.name + ' has been added.';
@@ -118,7 +128,6 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
         $scope.stacks = '';
         $scope.debug = '';
         $scope.checkmark = true;
-        $scope.edit = false;
 
         return alert;
     };
@@ -141,11 +150,14 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
     };
 
     $scope.editRow = function(item) {
-        $scope.editData[item.name] = true;
+        $scope.editData[item.id] = true;
+        // debug purposes
+        console.log("editData: ", $scope.editData);
+        console.log("id: ", $scope.editData[item.id]);
     };
 
     $scope.updateRow = function(item) {
-        $scope.editData[item.name] = false;
+        $scope.editData[item.id] = false;
     };
 
 

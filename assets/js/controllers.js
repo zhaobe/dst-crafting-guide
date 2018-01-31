@@ -99,10 +99,14 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
     // for the existing items in scope.items set editData to false
     for (var i = 0; i < $scope.items.length; i++) {
         $scope.editData[$scope.items[i].id] = false;
-        counter++;
     }
 
     $scope.addRow = function() {
+        // count the items
+        for (var i = 0; i < $scope.items.length; i++) {
+            counter++;
+        }
+
         $scope.items.push({
             'name': $scope.name,
             'materials': $scope.materials,
@@ -113,8 +117,9 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
             'perk': $scope.perk,
             'stacks': $scope.stacks,
             'debug': $scope.debug,
-            'id': counter + 1
+            'id': counter
         });
+        console.log($scope.items); // debug purposes
 
         $scope.alert = $scope.name + ' has been added.';
 
@@ -128,6 +133,7 @@ dstApp.controller("CraftCtrl", ['$scope', function($scope) {
         $scope.stacks = '';
         $scope.debug = '';
         $scope.checkmark = true;
+        counter = 0; // reset counter after counting all of them
 
         return alert;
     };

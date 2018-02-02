@@ -125,6 +125,9 @@ div {
     <table class="table">
         <tr>
             <th>
+                <a>ID</a>
+            </th>
+            <th>
                 <a ng-click="sortType = 'name'; sortReverse = !sortReverse">Item Name</a>
             </th>
             <th>
@@ -153,6 +156,7 @@ div {
             </th>
         </tr>
         <tr ng-repeat="i in items | orderBy:sortType:sortReverse  | filter: searchKeyword " class="ng-scope">
+            <td><div>{{$index}}</div></td>
             <td>
                 <div ng-hide="editData[i.id]">{{i.name}}</div>
                 <div ng-show="editData[i.id]">

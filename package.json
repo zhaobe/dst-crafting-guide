@@ -1,0 +1,22 @@
+{
+  "name": "dst-crafting-guide",
+  "version": "1.0.0",
+  "description": "A quick web browser crafting list for Don't Starve Together where you customize your own list and quickly search for it.",
+  "main": "assets/js/controllers.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhaobe/dst-crafting-guide.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhaobe/dst-crafting-guide/issues"
+  },
+  "homepage": "https://github.com/zhaobe/dst-crafting-guide#readme",
+  "devDependencies": {
+    "karma": "^2.0.0"
+  }
+}

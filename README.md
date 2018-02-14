@@ -12,6 +12,7 @@ DONE:
 - edit function
 
 TODO:
+- add jasmine bdd testing
 - add item value checking - delay until other functions are done
 	- use ngRequired or form required, only name for now
 - add item persist

@@ -26,7 +26,8 @@ BUGS/ISSUES:
 
 TESTING:
 - run `npm install -g karma-cli` to install karma cli globally so no need to re-run `./node_modules/karma/bin/karma start`
-- instead just use `karma start karma.conf.js` to run testing
+- ~~instead just use `karma start karma.conf.js` to run testing~~
+- `npm test` should be sufficient
 
 DEBUG:
 - use this for debugging karma `karma start my.conf.js --log-level debug --single-run`

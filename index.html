@@ -156,7 +156,7 @@ div {
                 <a ng-click="sortType = 'debug'; sortReverse = !sortReverse">Debug Spawn</a>
             </th>
         </tr>
-        <tr ng-repeat="i in items track by $index | orderBy:sortType:sortReverse  | filter: searchKeyword " class="ng-scope">
+        <tr ng-repeat="i in items | orderBy:sortType:sortReverse  | filter: searchKeyword " class="ng-scope">
             <td><div>{{$index}}</div></td>
             <td>
                 <div ng-hide="editData[i.id]">{{i.name}}</div>
